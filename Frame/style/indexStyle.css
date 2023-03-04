@@ -1,0 +1,544 @@
+/*#Region Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    /*16px*/
+}
+
+/*endRegion*/
+/*#Region Declarem variables*/
+:root {
+    --verd-fosc: #87A497;
+    --verd-clar: #B4D1C6;
+    --blanc: #F2F4F5;
+    --blau: #374785;
+    --blau-hover: #5466AA;
+    --gris-fosc: #2D2D2D;
+    --gris-hover: #575757;
+    --font-normal: 'Noto Sans';
+    --font-semi: 'Noto Sans Semi';
+    --font-light: 'Noto Sans light';
+}
+
+/*endRegion*/
+
+body {
+    background-color: var(--verd-fosc);
+    font-family: var(--font-normal);
+    font-size: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/*#Region capçalera logo + menu navegació*/
+.inici {
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+}
+
+/*endRegion*
+
+/*logo*/
+.logo {
+    width: 210px;
+    margin-left: 40px;
+}
+
+/*#Region Menu navegació*/
+.menu {
+    margin-right: 40px;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.enlace {
+    text-decoration: none;
+    color: #2D2D2D;
+    font-size: 18px;
+}
+
+.enlace:hover {
+    color: var(--verd-clar);
+}
+
+/*endRegion*
+
+/*#Region Barra de búsqueda*/
+.search {
+    width: 848px;
+    height: 47px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.search::placeholder {
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: var(--verd-clar);
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 36px;
+}
+
+#search {
+    width: 40%;
+    min-width: 320px;
+    height: 45px;
+    background: var(--blanc);
+    border-radius: 15px;
+    padding: 16px;
+    font-size: 16px;
+    outline: 0;
+    /*Opció d'accebilitat, requadre en la caixa text*/
+}
+
+#search[placeholder] {
+    color: var(--verd-clar);
+}
+
+#search:focus {
+    color: var(--gris-fosc);
+    background-color: var(--verd-clar);
+}
+
+/*endRegion*
+
+/*Barra búsqueda dinàmica, al fer click s'obre*/
+.cercador {
+    background: var(--verd-clar) url(../img/lupa-icon.svg) no-repeat 7px 7px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+
+    font-size: 20px;
+
+    transition: all 0.5s;
+}
+
+.cercador:hover,
+.cercador:focus {
+    width: 250px;
+    background: var(--verd-clar) url(../img/lupa-icon.svg) no-repeat 200px 7px;
+    ;
+}
+
+/*endRegion*
+/*#Region Boto*/
+.cerca {
+    background-color: var(--blau);
+    color: var(--blanc);
+    font-size: 20px;
+    width: 5%;
+    min-width: 120px;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.cerca:hover {
+    background-color: var(--blau-hover);
+}
+
+/*endRegion*
+
+/*main*/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*#Region Secció */
+.container {
+    width: 80%;
+}
+
+.container h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+/*endRegion*
+
+/*#Region Cards movie*/
+
+.llista-novetats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, auto));
+    grid-gap: 1vw;
+    margin-bottom: 15px;
+    ;
+}
+
+.movie {
+    width: 160px;
+    background: var(--blanc);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 13px;
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.movie-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    margin-top: 18px;
+    position: relative;
+}
+
+.movie-info div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+
+.movie-info h3 {
+    line-height: 100%;
+    color: var(--verd-fosc);
+    font-family: var(--font-semi);
+}
+
+.movie-info p {
+    font-family: var(--font-light);
+}
+
+.puntuacio {
+    width: 50px;
+    height: 50px;
+    background-color: var(--blau);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -100%);
+}
+
+/*endRegion*
+
+/*Region footer*/
+.footer {
+    background-color: var(--gris-fosc);
+    color: var(--blanc);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: right;
+    gap: 8px;
+}
+
+.social {
+    display: inherit;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.social a:hover,
+.tmdb a:hover {
+    opacity: 0.5;
+}
+
+.tmdb {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.tmdb img {
+    height: 70px;
+}
+
+/*endRegion*
+/*Colors de la puntuació*/
+.green {
+    color: green;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
+/*#Region Style pàgina see.html*/
+.see {
+    height: 180px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5vW;
+}
+
+.buttons li {
+    list-style-type: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.vote {
+    width: 50px;
+    height: 50px;
+    background-color: var(--blau);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+/*endRegion*
+/*#Region classe style comú*/
+.mtb20 {
+    margin: 20px 0 20px 0;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs40 {
+    font-size: 40px;
+}
+
+.typescale21,
+.typescale28,
+.typescale37,
+.typescale50,
+.typescale67 {
+    margin: 1.38rem 0 1.38rem 0;
+    line-height: 1.3;
+}
+
+.typescale67 {
+    font-size: 4.209rem;
+    line-height: 110%;
+    /*h1*/
+}
+
+.typescale50 {
+    font-size: 3.157rem;
+    line-height: 110%;
+    /*h2*/
+}
+
+.typescale37 {
+    font-size: 2.369rem;
+    /*h3*/
+}
+
+.typescale28 {
+    font-size: 1.777rem;
+    /*h4*/
+}
+
+.typescale21 {
+    font-size: 1.333rem;
+    /*h5*/
+}
+/*endRegion*
+/*#Region Info detallada de la peli o serie*/
+.info {
+    margin-top: 50px;
+}
+
+.info article {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: var(--blanc);
+    margin-bottom: 50px;
+}
+
+.info article img {
+    /* min-width: 360px; */
+    width: 360px;
+    flex-basis: 20%;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.info article section {
+    flex-basis: 80%;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.text-light {
+    font-family: var(--font-light);
+}
+
+.data {
+    font-family: var(--font-light);
+}
+
+.info header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--verd-fosc)
+}
+
+.info h2 {
+    flex-basis: 70%;
+    color: var(--verd-fosc);
+}
+
+.info .overview {
+    font-family: var(--font-normal);
+}
+
+.info .extra {
+    padding-top: 10px;
+    font-size: 14px;
+    font-family: var(--font-semi);
+
+}
+
+.info img .btn-afegir {
+    width: 25px;
+    width: 25px;
+    position: absolute;
+    top: 80px;
+    right: 28px;
+    
+}
+/*endRegion*
+/*#Region Estil per finestra modal */
+.mostrar {
+    display: none!important;
+}
+
+.inicial {
+    display: none;
+}
+
+.modal {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal article {
+    position: relative;
+    background-color: var(--blanc);
+    max-width: 800px;
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+img.btn-tancar {
+    width: 20px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+img.btn-afegir {
+    width: 25px;
+    position: absolute;
+    top: 80px;
+    right: 28px;
+}
+
+.modal .poster {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    float: left;
+    margin-right: 20px;
+}
+/*endRegion*
+/*Media queries*/
+@media screen and (min-width:375px) and (max-width:750px) {
+    div.cabecera {
+        flex-direction: column;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .menu {
+        margin-top: 20px;
+        margin-right: 0;
+    }
+}

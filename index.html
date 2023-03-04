@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ca-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="style/fonts.css" type="text/css">
+    <link rel="stylesheet" href="style/indexStyle.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <!--JS-->
+    <script src="scripts/index.js" type="module"></script>
+    <title>Frame</title>
+</head>
+
+<body>
+    <!--Header-->
+    <header class="inici"></header>
+    <!-- Barra Buscar -->
+    <div>
+        <form id="form">
+            <input type="text" placeholder="Cerca pel·lícula o sèrie" id="search" class="search">
+            <button type="submit" class="cerca">Cerca</button>
+        </form>
+    </div>
+    <!--Llista novetats pelis i series-->
+    <main>
+        <!--Contenidor per mostrar els resultats de cerca-->
+        <section id="results"></section>
+        <!--Contenidor on es mostren les cards-->
+        <section id="container" class="container">
+            <header>
+                <h2>El més popular en:</h2>
+            </header>
+            <section class="llista-novetats llista-pelis">
+                <!-- <header><h3>Pel·lícules</h3></header> -->
+            </section>
+            <section class="llista-novetats llista-series">
+                <!-- <header class="text-center"><h3>Sèries de TV</h3></header> -->
+            </section>
+        </section>
+    </main>
+    <!--Modal-->
+    <div class="modal-container"></div>
+    <!--Footer-->
+    <footer class="footer"></footer>
+</body>
+
+</html>
